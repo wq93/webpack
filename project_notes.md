@@ -16,4 +16,7 @@
     + 比如: `webpack src/entry.js dist/bundle.js`
 
 ### 第03节：配置文件：入口和出口
--
+### 第06节：插件配置：配置JS压缩
+- 压缩JS代码：
+    - 引入一个uglifyjs-webpack-plugin(JS压缩插件，简称uglify)。
+    - 虽然uglifyjs是插件，但是webpack版本里默认已经集成，不需要再次安装。
