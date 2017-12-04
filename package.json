@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    // 配置文件： 服务和热更新
     "server":"webpack-dev-server"
   },
   "author": "wangqi",
