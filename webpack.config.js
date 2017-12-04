@@ -5,7 +5,7 @@ const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 // const buildPath = path.resolve(__dirname, 'public', 'build');
 
 // JS压缩插件，简称uglify webpack版本里默认已经集成，不需要再次安装
-const uglify = require('uglifyjs-webpack-plugin')
+// const uglify = require('uglifyjs-webpack-plugin')
 // 打包HTML文件
 const htmlPlugin= require('html-webpack-plugin');
 module.exports = {
@@ -27,6 +27,15 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test:/\.(png|jpg|gif)/ ,
+        use:[{
+          loader:'url-loader',
+          options:{
+            limit:500000
+          }
+        }]
       }
     ]
   },

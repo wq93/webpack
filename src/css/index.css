@@ -2,3 +2,8 @@ body{
     background-color: red;
     color: white;
 }
+#tupian{
+    background-image: url(../images/qsmy.jpg);
+    width:1200px;
+    height:700px;
+}
