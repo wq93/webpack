@@ -1,6 +1,6 @@
 const glob = require('glob');
 const PurifyCSSPlugin = require("purifycss-webpack");
-const Webpack = require('webpack');
+const webpack  = require('webpack');
 const path = require('path');
 const srcPath = path.resolve(__dirname, 'src');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
@@ -22,7 +22,7 @@ module.exports = {
   //入口文件的配置项
   entry: {
     //里面的entery是可以随便写的
-    entry: entry
+    entry: entry.path.entry
   },
   //出口文件的配置项
   output: {
@@ -86,6 +86,10 @@ module.exports = {
       hash: true,
       template: './src/index.html'
     }),
+    new webpack.ProvidePlugin({
+      jQuery: "jquery",
+      $: "jquery"
+    })
     // new PurifyCSSPlugin({
     //   // Give paths to parse for rules. These should be absolute!
     //   paths: glob.sync(path.join(__dirname, 'src/*.html')),

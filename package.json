@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "webpack-dev-server",
-    "dev":"set type=dev&webapck",
+    "dev": "set type=dev&webapck",
     "build": "set type=build&webpack"
   },
   "author": "wangqi",
@@ -34,6 +34,7 @@
     "webpack": "^3.9.1"
   },
   "dependencies": {
-    "html-withimg-loader": "^0.1.16"
+    "html-withimg-loader": "^0.1.16",
+    "jquery": "^3.2.1"
   }
 }
