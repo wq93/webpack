@@ -3,5 +3,6 @@ $width: 100%;
 #nav {
   width: $width;
   height:30px;
-  background-color: $nav-color
+  background-color: $nav-color;
+  transform: rotate(-1deg);
 }
