@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "webpack-dev-server"
+    "server": "webpack-dev-server",
+    "dev":"set type=dev&webapck",
+    "build": "set type=build&webpack"
   },
   "author": "wangqi",
   "license": "ISC",

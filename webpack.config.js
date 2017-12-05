@@ -14,6 +14,7 @@ const htmlPlugin = require('html-webpack-plugin');
 // 分离css
 const extractTextPlugin = require("extract-text-webpack-plugin");
 
+const entry = require("./entry_webpack")
 // var website ={
 //   publicPath:"http://localhost:1717/"
 // }
@@ -21,7 +22,7 @@ module.exports = {
   //入口文件的配置项
   entry: {
     //里面的entery是可以随便写的
-    entry: ['./src/entry.js','./src/entry2.js']
+    entry: entry
   },
   //出口文件的配置项
   output: {
