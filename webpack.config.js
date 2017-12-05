@@ -1,3 +1,5 @@
+const glob = require('glob');
+const PurifyCSSPlugin = require("purifycss-webpack");
 const Webpack = require('webpack');
 const path = require('path');
 const srcPath = path.resolve(__dirname, 'src');
@@ -75,10 +77,13 @@ module.exports = {
       },
       hash: true,
       template: './src/index.html'
-
     }),
+    // new PurifyCSSPlugin({
+    //   // Give paths to parse for rules. These should be absolute!
+    //   paths: glob.sync(path.join(__dirname, 'src/*.html')),
+    // })
     // new extractTextPlugin("/css/index.css"),
-    new uglify()
+    //new uglify()
   ],
   //配置webpack开发服务功能
   devServer: {

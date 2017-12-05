@@ -29,3 +29,7 @@
 - 配置url-loader
     - 我们安装好后，就可以使用这个loader了，记得在loader使用时不需要用require引入，在plugins才需要使用require引入。
 
+### 第14节：CSS进阶：消除未使用的CSS
+ - `npm i -D purifycss-webpack purify-css`
+ - 这里的-D代表的是–save-dev ,只是一个简写。
+
