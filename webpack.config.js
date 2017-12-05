@@ -34,7 +34,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|jpg|gif)/,
@@ -42,13 +42,28 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 500000,
-            outputPath:'images/'
+            outputPath: 'images/'
           }
         }]
       },
       {
         test: /\.(htm|html)$/i,
-        use:[ 'html-withimg-loader']
+        use: ['html-withimg-loader']
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {loader: "style-loader"}, // creates style nodes from JS strings
+          {loader: "css-loader"}, // translates CSS into CommonJS
+          {loader: "less-loader"} // compiles Less to CSS
+        ]
+      },
+      {
+        test: /\.scss$/,
+        use: [{loader: "style-loader"},
+          {loader: "css-loader"},
+          {loader: "sass-loader"}
+        ]
       }
     ]
   },
