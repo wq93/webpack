@@ -21,7 +21,7 @@ module.exports = {
   //入口文件的配置项
   entry: {
     //里面的entery是可以随便写的
-    entry: './src/entry.js'
+    entry: ['./src/entry.js','./src/entry2.js']
   },
   //出口文件的配置项
   output: {
@@ -66,6 +66,13 @@ module.exports = {
           {loader: "css-loader"},
           {loader: "sass-loader"}
         ]
+      },
+      {
+        test:/\.(jsx|js)$/,
+        use:{
+          loader:'babel-loader',
+        },
+        exclude:/node_modules/
       }
     ]
   },
