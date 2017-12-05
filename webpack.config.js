@@ -5,9 +5,16 @@ const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 // const buildPath = path.resolve(__dirname, 'public', 'build');
 
 // JS压缩插件，简称uglify webpack版本里默认已经集成，不需要再次安装
-// const uglify = require('uglifyjs-webpack-plugin')
+const uglify = require('uglifyjs-webpack-plugin')
 // 打包HTML文件
-const htmlPlugin= require('html-webpack-plugin');
+const htmlPlugin = require('html-webpack-plugin');
+
+// 分离css
+const extractTextPlugin = require("extract-text-webpack-plugin");
+
+// var website ={
+//   publicPath:"http://localhost:1717/"
+// }
 module.exports = {
   //入口文件的配置项
   entry: {
@@ -19,36 +26,44 @@ module.exports = {
     //打包的路径文职
     path: path.resolve(__dirname, 'dist'),
     //打包的文件名称
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    //publicPath:website.publicPath
   },
   //模块：例如解读CSS,图片如何转换，压缩
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [ 'style-loader', 'css-loader' ]
       },
       {
-        test:/\.(png|jpg|gif)/ ,
-        use:[{
-          loader:'url-loader',
-          options:{
-            limit:500000
+        test: /\.(png|jpg|gif)/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 500000,
+            outputPath:'images/'
           }
         }]
+      },
+      {
+        test: /\.(htm|html)$/i,
+        use:[ 'html-withimg-loader']
       }
     ]
   },
   //插件，用于生产模版和各项功能
   plugins: [
     new htmlPlugin({
-      minify:{
-        removeAttributeQuotes:true
+      minify: {
+        removeAttributeQuotes: true
       },
-      hash:true,
-      template:'./src/index.html'
+      hash: true,
+      template: './src/index.html'
 
-    })
+    }),
+    // new extractTextPlugin("/css/index.css"),
+    new uglify()
   ],
   //配置webpack开发服务功能
   devServer: {
